@@ -1,0 +1,135 @@
+{
+  "project_info": {
+    "project_number": "802729844254",
+    "firebase_url": "https://samplesdk30.firebaseio.com",
+    "project_id": "samplesdk30",
+    "storage_bucket": "samplesdk30.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:802729844254:android:2cb8ce63afceab93",
+        "android_client_info": {
+          "package_name": "com.devsupport.kotlin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "802729844254-kacnoe7udd48u41q87at2dpqtp3poaea.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUOoBtORmIKSQtcN2MMb-LJ_dNGqLWgxY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:802729844254:android:7757b1f0539e48e0",
+        "android_client_info": {
+          "package_name": "com.devsupport.samplesdk32"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "802729844254-kacnoe7udd48u41q87at2dpqtp3poaea.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUOoBtORmIKSQtcN2MMb-LJ_dNGqLWgxY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:802729844254:android:eccdae6bab8997e5",
+        "android_client_info": {
+          "package_name": "com.devsupport.training"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "802729844254-kacnoe7udd48u41q87at2dpqtp3poaea.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUOoBtORmIKSQtcN2MMb-LJ_dNGqLWgxY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:802729844254:android:8fa8ac31509ffdf5",
+        "android_client_info": {
+          "package_name": "com.liveperson.samplesdk30"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "802729844254-kacnoe7udd48u41q87at2dpqtp3poaea.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUOoBtORmIKSQtcN2MMb-LJ_dNGqLWgxY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

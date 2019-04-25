@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">SampleApp</string>
+    <string name="accountTextFieldLabel">Account:</string>
+    <string name="messagingActivityButtonLabel">Messaging Activity</string>
+    <string name="messagingFragmentButtonLabel">Messaging Fragment</string>
+    <string name="logoutButtonLabel">Logout</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
