@@ -13,7 +13,7 @@ git clone https://github.com/dvillacis94/LivePerson-AndrodSDK-Kotlin.git
 
 After the cloning is done, open project with Android Studio.
 
-## Step 2:
+### Step 2:
 
 Once the Project finish syncing, navigate to build.gradle(Module: App) and set the following Configurations:
 
@@ -40,6 +40,6 @@ LP_DEBUGGING | YES | boolean | Controls SDK logging capabilities
 LivePerson.setIsDebuggable(BuildConfig.LP_DEBUGGING)
 ```
 
-## Step 3:
+### Step 3:
 
 Now that the BrandId and the AccountId are set you'll need to **Build & Run** to launch the Simulator.
