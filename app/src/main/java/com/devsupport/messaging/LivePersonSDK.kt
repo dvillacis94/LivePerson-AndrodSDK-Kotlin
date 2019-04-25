@@ -10,10 +10,7 @@ import com.devsupport.BuildConfig
 import com.devsupport.MessagingFragment
 import com.devsupport.firebase.FirebaseRegistrationIntentService
 import com.devsupport.push.NotificationUI
-import com.liveperson.infra.ConversationViewParams
-import com.liveperson.infra.ICallback
-import com.liveperson.infra.InitLivePersonProperties
-import com.liveperson.infra.LPAuthenticationParams
+import com.liveperson.infra.*
 import com.liveperson.infra.callbacks.InitLivePersonCallBack
 import com.liveperson.infra.callbacks.LogoutLivePersonCallBack
 import com.liveperson.infra.messaging_ui.fragment.ConversationFragment
@@ -28,8 +25,9 @@ class LivePersonSDK {
   companion object Singleton {
 
     private val TAG : String? = LivePersonSDK::class.simpleName
-    const val Account : String = ""
-    var AppId : String = BuildConfig.APPLICATION_ID
+    const val Account : String = BuildConfig.LP_ACCOUNT
+    const val AppId : String = BuildConfig.APPLICATION_ID
+    const val AppInstallationId : String = BuildConfig.LP_AP_INSTALLATION_ID
     private var isInitialize : Boolean = false
     const val FRAGMENT_ID = "liveperson_fragment"
 
@@ -45,7 +43,10 @@ class LivePersonSDK {
      * @param application
      */
     fun initSDK(application: Application, callBack: InitLivePersonCallBack? = null){
-      LivePerson.initialize(application.applicationContext, InitLivePersonProperties(Account, AppId, object : InitLivePersonCallBack{
+      // Create Monitoring Initialization Params - Needed for Unauthenticated Users
+      val monitoringInitParams = MonitoringInitParams(AppInstallationId)
+      // Initialize LP SDK
+      LivePerson.initialize(application.applicationContext, InitLivePersonProperties(Account, AppId, monitoringInitParams, object : InitLivePersonCallBack{
         override fun onInitFailed(exception: Exception?) {
           // Update Initialization Flag
           isInitialize = false
@@ -62,7 +63,7 @@ class LivePersonSDK {
           // Log Success
           Log.i(TAG, ": Initialization : Success")
           //
-          LivePerson.setIsDebuggable(true)
+          LivePerson.setIsDebuggable(BuildConfig.LP_DEBUGGING)
           // Check if Callback is available
           callBack?.let {
             it.onInitSucceed()

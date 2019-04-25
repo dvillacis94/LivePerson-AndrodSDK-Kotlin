@@ -18,6 +18,16 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("boolean", "LP_DEBUGGING", "false")
+            buildConfigField("String", "LP_ACCOUNT", "\"ACCOUNT_ID\"")
+            buildConfigField("String", "LP_AP_INSTALLATION_ID", "\"APP_INSTALLATION_ID\"")
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("boolean", "LP_DEBUGGING", "true")
+            buildConfigField("String", "LP_ACCOUNT", "\"ACCOUNT_ID\"")
+            buildConfigField("String", "LP_AP_INSTALLATION_ID", "\"APP_INSTALLATION_ID\"")
         }
     }
 }
