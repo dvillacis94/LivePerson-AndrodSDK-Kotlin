@@ -1,10 +1,12 @@
 package com.devsupport
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.Toast
+import com.devsupport.firebase.FirebaseRegistrationIntentService
 import com.devsupport.messaging.LivePersonSDK
 import com.liveperson.infra.LPAuthenticationParams
 import com.liveperson.infra.messaging_ui.fragment.ConversationFragment
@@ -35,6 +37,8 @@ class MessagingFragment : AppCompatActivity() {
   override fun onResume() {
     // Super Init
     super.onResume()
+    // Register for Push
+    this.handleRegistration()
     // Log
     Log.i(TAG, "onResume")
     // Check Fragment is not null
@@ -100,6 +104,16 @@ class MessagingFragment : AppCompatActivity() {
       // Attach Existing Fragment
       attachFragment()
     }
+  }
+
+  /**
+   * Perform Firebase Registration
+   */
+  private fun handleRegistration(){
+    // Create Registration Service
+    val intent = Intent(applicationContext, FirebaseRegistrationIntentService::class.java)
+    // Launch Intent
+    applicationContext.startService(intent)
   }
 
   /**

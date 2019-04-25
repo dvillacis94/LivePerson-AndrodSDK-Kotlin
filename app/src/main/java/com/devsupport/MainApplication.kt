@@ -147,7 +147,7 @@ class MainApplication : Application() {
     // Show Toast
     showToast("Token Expired")
     // TODO: Set JWT from Server
-    val authenticationParams = LPAuthenticationParams(LPAuthenticationParams.LPAuthenticationType.AUTH).setHostAppJWT("JWT");
+    val authenticationParams = LPAuthenticationParams(LPAuthenticationParams.LPAuthenticationType.AUTH).setHostAppJWT("JWT")
     // Reconnect
     LivePersonSDK.reconnect(authenticationParams)
   }

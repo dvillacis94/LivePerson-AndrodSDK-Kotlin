@@ -26,8 +26,8 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField("boolean", "LP_DEBUGGING", "true")
-            buildConfigField("String", "LP_ACCOUNT", "\"ACCOUNT_ID\"")
-            buildConfigField("String", "LP_AP_INSTALLATION_ID", "\"APP_INSTALLATION_ID\"")
+            buildConfigField("String", "LP_ACCOUNT", "\"64602443\"")
+            buildConfigField("String", "LP_AP_INSTALLATION_ID", "\"c70afc9f-f8e5-4d76-9bb8-e51332287f55\"")
         }
     }
 }
