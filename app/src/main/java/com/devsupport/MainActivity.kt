@@ -69,8 +69,8 @@ class MainActivity : AppCompatActivity(), OnClickListener {
     LivePersonSDK.setUserProfile("David", "Villacis", "(123) 456 6787")
     // Create Auth Params
     val authenticationParams = LPAuthenticationParams(LPAuthenticationParams.LPAuthenticationType.AUTH)
-    // Set Auth Key
-    authenticationParams.authKey = "dedf7bbbdb521295e1ce4b7878aa4e8b022693f7f5a274ccba19ba2e7109872ec9ac2ea1cc5ec56c8236989ce7aed96922e6357e66a5d9a7"
+    // TODO: Set JWT from Server
+    authenticationParams.hostAppJWT = "JWT"
     // Show Conversation Screen
     LivePersonSDK.showConversation(this, authenticationParams)
   }
@@ -89,16 +89,10 @@ class MainActivity : AppCompatActivity(), OnClickListener {
    *  Perform Logout from LPMessagingSDK
    */
   private fun logout(){
-    //
-    LivePersonSDK.logout(applicationContext, object: LogoutLivePersonCallback, LogoutLivePersonCallBack {
-      override fun onLogoutFailed(p0: Exception?) {
-        Toast.makeText(applicationContext, "Logout Failed", Toast.LENGTH_SHORT).show()
-      }
-
+    LivePersonSDK.logout(applicationContext, object: LogoutLivePersonCallback {
       override fun onLogoutFailed() {
         Toast.makeText(applicationContext, "Logout Failed", Toast.LENGTH_SHORT).show()
       }
-
       override fun onLogoutSucceed() {
         Toast.makeText(applicationContext, "Logout Success", Toast.LENGTH_SHORT).show()
       }

@@ -11,6 +11,7 @@ import com.devsupport.messaging.LivePersonSDK
 import com.liveperson.api.LivePersonIntents
 import com.liveperson.api.sdk.LPConversationData
 import com.liveperson.api.sdk.PermissionType
+import com.liveperson.infra.LPAuthenticationParams
 import com.liveperson.infra.callbacks.InitLivePersonCallBack
 import com.liveperson.messaging.TaskType
 import com.liveperson.messaging.model.AgentData
@@ -29,7 +30,7 @@ class MainApplication : Application() {
     super.onCreate()
     // Init Event Receiver
     this.registerToLivePersonEvents()
-    // Init Liveperson SDK
+    // Init LivePerson SDK
     LivePersonSDK.initSDK(this, object : InitLivePersonCallBack {
       override fun onInitFailed(exception: Exception?) {
         // Log Error
@@ -145,6 +146,10 @@ class MainApplication : Application() {
   private fun onTokenExpired(){
     // Show Toast
     showToast("Token Expired")
+    // TODO: Set JWT from Server
+    val authenticationParams = LPAuthenticationParams(LPAuthenticationParams.LPAuthenticationType.AUTH).setHostAppJWT("JWT");
+    // Reconnect
+    LivePersonSDK.reconnect(authenticationParams)
   }
 
   private fun onError(intent: Intent){

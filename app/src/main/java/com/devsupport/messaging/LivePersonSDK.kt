@@ -28,8 +28,7 @@ class LivePersonSDK {
   companion object Singleton {
 
     private val TAG : String? = LivePersonSDK::class.simpleName
-    // val Account : String = "64602443"
-    val Account : String = "30069370"
+    const val Account : String = ""
     var AppId : String = BuildConfig.APPLICATION_ID
     private var isInitialize : Boolean = false
     const val FRAGMENT_ID = "liveperson_fragment"
@@ -73,23 +72,21 @@ class LivePersonSDK {
     }
 
     /**
-     *
+     * Perform Logout from LivePersonSDK
      */
-     fun logout(context: Context, callback: LogoutLivePersonCallBack?){
+     fun logout(context: Context, callback: LogoutLivePersonCallback?){
        // Perform Logout
-       LivePerson.logOut(context, this.Account, BuildConfig.APPLICATION_ID, object : LogoutLivePersonCallBack,
-         LogoutLivePersonCallback {
-         override fun onLogoutFailed(p0: Exception?) {
-           // Log
-           Log.d(TAG, "Logout Error: " + p0.toString())
-         }
+       LivePerson.logOut(context, this.Account, BuildConfig.APPLICATION_ID, object : LogoutLivePersonCallback {
          override fun onLogoutFailed() {
-           // Log
-           Log.d(TAG, "Logout Error: ")
+           Log.e(TAG, "Logout Error")
+           // Trigger Callback
+           callback?.onLogoutFailed()
          }
+
          override fun onLogoutSucceed() {
-           // Log
-           Log.d(TAG, "Logout Succeed")
+           Log.d(TAG, "Logout Succeed ")
+           // Trigger Callback
+           callback?.onLogoutSucceed()
          }
        })
      }
@@ -139,6 +136,14 @@ class LivePersonSDK {
     fun getConversationFragment(authenticationParams : LPAuthenticationParams = LPAuthenticationParams(), conversationParams : ConversationViewParams =  ConversationViewParams(false)) : ConversationFragment {
       // Build ConversationFragment
       return LivePerson.getConversationFragment(authenticationParams, conversationParams) as ConversationFragment
+    }
+
+    /**
+     * Will perform Reconnect when the Authenticated Token Expires
+     */
+    fun reconnect(authenticationParams : LPAuthenticationParams = LPAuthenticationParams(LPAuthenticationParams.LPAuthenticationType.AUTH)){
+      // Perform Reconnect for Token Expired
+      LivePerson.reconnect(authenticationParams)
     }
 
     /**
